@@ -1,8 +1,8 @@
 {
-  "name": "rest-client",
+  "name": "json2type",
   "version": "0.0.1",
   "description": "Rest Client for testing APIs",
-  "main": " ./dist/src/index.js",
+  "main": " ./dist/JsonToJson-example.js",
   "scripts": {
     "build": "node ./node_modules/typescript/bin/tsc  --listEmittedFiles",
     "j2j": "npm run build && node --inspect=5858 ./dist/JsonToJson-example.js"
