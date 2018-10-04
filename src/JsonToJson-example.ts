@@ -28,16 +28,21 @@ export async function run() {
 
 // Document related functions
 function getRefOt(x: any) {
-  return x["IFTMINE03.GROUP3"].filter((x: any) => isDocType(x, "AAS")).map(getDocRefNum)
+  return getRefDoc(x, "AAS")
 }
 
 function getRefAdm(x: any) {
-  return x["IFTMINE03.GROUP3"].filter((x: any) => isDocType(x, "ACA")).map(getDocRefNum)
+  return getRefDoc(x, "ACA")
 }
 
 function getRefLliu(x: any) {
-  return x["IFTMINE03.GROUP3"].filter((x: any) => isDocType(x, "AAJ")).map(getDocRefNum)
+  return getRefDoc(x, "AAJ")
 }
+
+function getRefDoc(x: any, qualifier: string) {
+  return x["IFTMINE03.GROUP3"].filter((x: any) => isDocType(x, qualifier)).map(getDocRefNum)
+}
+
 
 function isDocType(x: any, qualifier: string) {
   return (x["trcd_reference"]["tred_reference.qualifier"] === qualifier);
